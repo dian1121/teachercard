@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>教师节快乐 - 致启蒙者</title>
+    <style>
+        body {
+            font-family: '行楷', cursive;
+            background-color: #ffe6f2;
+            background-image: url('https://cdn.pixabay.com/photo/2019/11/14/16/45/cherry-blossom-4675178_1280.png');
+            background-size: cover;
+            background-position: center;
+            color: #5a2d5a;
+            text-align: center;
+            height: 100vh;
+            margin: 0;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            overflow: hidden;
+        }
+        
+        .card {
+            background-color: rgba(255, 255, 255, 0.9);
+            border-radius: 15px;
+            padding: 40px;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+            max-width: 800px;
+            width: 90%;
+            position: relative;
+            animation: float 5s ease-in-out infinite;
+        }
+        
+        @keyframes float {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-10px); }
+        }
+        
+        .title {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+            color: #ff69b4;
+            animation: fadeIn 2s ease-in-out;
+        }
+        
+        .content {
+            font-size: 1.2rem;
+            line-height: 1.8;
+            margin-bottom: 30px;
+            animation: fadeIn 3s ease-in-out 2s;
+        }
+        
+        .signature {
+            font-size: 1.5rem;
+            margin-top: 30px;
+            animation: fadeIn 4s ease-in-out 2s;
+        }
+        
+        .petals {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: -1;
+        }
+        
+        .petal {
+            position: absolute;
+            background-color: #ff69b4;
+            border-radius: 50%;
+            opacity: 0.8;
+            animation: fall 10s linear infinite;
+        }
+        
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        @keyframes fall {
+            to {
+                transform: translateY(100vh);
+                opacity: 0;
+            }
+        }
+        
+        .footer {
+            margin-top: 20px;
+            font-size: 0.9rem;
+            color: #888;
+        }
+    </style>
+</head>
+<body>
+    <div class="petals"></div>
+    <div class="card">
+        <h1 class="title">教师节快乐</h1>
+        <h2 class="subtitle">致启蒙者</h2>
+        
+        <div class="content">
+            <p>老师，您是我人生扉页的第一行笔墨，</p>
+            <p>用耐心勾勒梦想的轮廓。</p>
+            <p>那些年您递来的橡皮擦掉的不仅是错题，</p>
+            <p>更是我成长路上的忐忑。</p>
+            <p>愿您讲台上的粉笔灰化作星光，</p>
+            <p>照亮自己的岁月长河。</p>
+        </div>
+        
+        <p class="signature">—— 您的学生 敬上</p>
+        
+        <div class="footer">
+            <p>2025年教师节</p>
+        </div>
+    </div>
+    
+    <script>
+        // 创建樱花花瓣效果
+        function createPetals() {
+            const petalContainer = document.querySelector('.petals');
+            const petalCount = 50;
+            
+            for (let i = 0; i < petalCount; i++) {
+                const petal = document.createElement('div');
+                petal.classList.add('petal');
+                
+                const size = Math.random() * 20 + 5;
+                petal.style.width = `${size}px`;
+                petal.style.height = `${size}px`;
+                petal.style.left = `${Math.random() * 100}%`;
+                petal.style.animationDuration = `${Math.random() * 5 + 5}s`;
+                
+                petalContainer.appendChild(petal);
+            }
+        }
+        
+        window.addEventListener('DOMContentLoaded', createPetals);
+    </script>
+</body>
+</html>
